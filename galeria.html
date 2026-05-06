@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria | Icoaraci</title>
+
+    <style>
+    :root {
+        --bg-main: #ffffff;
+        --primary: #ff7a18;
+        --primary-hover: #e56710;
+        --text-main: #1a1a1a;
+        --text-soft: #555;
+        --border: #e5e5e5;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+        background: var(--bg-main);
+        color: var(--text-main);
+    }
+
+    /* 🔥 HEADER AJUSTADO (AGORA IGUAL AO INDEX) */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 8%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+        font-size: 22px;
+        font-weight: 900;
+        color: var(--primary);
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+
+    /* 🔥 MENU (SUBSTITUI O BOTÃO VOLTAR) */
+    nav a {
+        text-decoration: none;
+        color: var(--text-soft);
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: uppercase;
+        margin-left: 20px;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        color: var(--primary);
+    }
+
+    section {
+        padding: 60px 8%;
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* GALERIA */
+    .galeria-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .foto-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        height: 250px;
+    }
+
+    .foto-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+    }
+
+    .foto-item:hover img {
+        transform: scale(1.08);
+    }
+
+    .foto-credito {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 11px;
+    padding: 5px 10px;
+    text-align: right;
+
+    opacity: 0;
+    transform: translateY(100%);
+    transition: 0.4s;
+}
+
+.foto-item:hover .foto-credito {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+    footer {
+        padding: 40px;
+        text-align: center;
+        border-top: 1px solid var(--border);
+        color: #888;
+    }
+
+    /* MOBILE */
+    @media(max-width:768px) {
+        nav {
+            display: none;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Icoaraci</div>
+
+<nav>
+
+<a href="index.html">Início</a>
+
+</nav>
+
+</header>
+
+<section>
+    <h1>Galeria Completa</h1>
+
+    <div class="galeria-grid">
+
+        <!-- TODAS SUAS FOTOS -->
+        <div class="foto-item"><img src="orla-de-icoaraci.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="82cde91e-4151-45be-9a5a-fe03ae78fa10.jpg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="espaco-artesanato.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="igreja-praca-matriz.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="barco-por-do-sol.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="fim-do-dia.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="vista.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="casarao-antigo.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="praiavistodecima.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="praia-do-cruzeiro.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="pessoas-jogando-volei.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="pessoascaminhando.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="barco-ave.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="barco-antigo-abandonado.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="pessoas-jogando-volei03.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+        <div class="foto-item"><img src="pessoas-jogando-volei02.jpeg"><div class="foto-credito">@lucasgusmao_official</div></div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Icoaraci</p>
+</footer>
+
+</body>
+</html>

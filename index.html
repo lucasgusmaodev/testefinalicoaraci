@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icoaraci | Vila Sorriso</title>
+
+    <style>
+        /* VARIÁVEIS */
+        :root {
+            --bg-main: #ffffff;
+            --bg-soft: #f7f7f7;
+            --card-bg: #ffffff;
+
+            --primary: #ff7a18;
+            --primary-hover: #e56710;
+
+            --text-main: #1a1a1a;
+            --text-soft: #555;
+            --text-muted: #888;
+
+            --border: #e5e5e5;
+        }
+
+        /* GERAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-soft);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* HERO */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+                url("vistaaerea.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 5vw, 60px);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: var(--primary);
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* SEÇÕES */
+        section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        section {
+            background: #ffffff;
+        }
+
+        section h2 {
+            font-size: 32px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* SOBRE */
+        .sobre-texto {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-size: 18px;
+            color: var(--text-soft);
+        }
+
+        /* GALERIA */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .foto-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+            background: #eee;
+        }
+
+        .foto-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .foto-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .foto-credito {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 11px;
+            padding: 5px 10px;
+            text-align: right;
+            transform: translateY(100%);
+            transition: 0.3s;
+        }
+
+        .foto-item:hover .foto-credito {
+            transform: translateY(0);
+        }
+
+        /* LUGARES */
+        .lugares-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .lugar-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lugar-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .lugar-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .lugar-info {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .lugar-info h3 {
+            color: var(--primary);
+        }
+
+        .lugar-info p {
+            color: var(--text-soft);
+            font-size: 14px;
+        }
+
+        /* BOTÃO */
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+        }
+
+        /* GRIDS */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-category {
+            text-align: left;
+            background: #fff;
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .menu-category:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-category h3 {
+            color: var(--primary);
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .menu-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+
+        .item-price {
+            color: var(--primary);
+        }
+
+        .item-description {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Ajuste para o link do site nas balsas */
+        .link-site {
+            text-decoration: none;
+            font-size: 11px;
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--primary);
+            transition: 0.2s;
+        }
+        .link-site:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .address-info {
+            display: block;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        /* MAPA */
+        .mapa-box {
+            width: 100%;
+            height: 400px;
+            background: #eee;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 50px;
+            background: #f2f2f2;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            nav ul {
+                display: none;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .foto-credito {
+                transform: translateY(0);
+            }
+        }
+        /* MOBILE */
+    @media(max-width:768px) {
+        nav ul {
+            display: none;
+        }
+
+        section {
+            padding: 60px 5%;
+        }
+
+        .foto-credito {
+            transform: translateY(0);
+        }
+
+        /* 🔥 RESPONSIVO DA GALERIA */
+        .galeria-preview {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    /* BOTÕES SOCIAIS - CORRIDA */
+.btn-group {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* CARD DE EVENTO DE CORRIDA */
+.evento-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.evento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.evento-img {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.evento-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* DATA */
+.evento-data {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    padding: 8px 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.evento-data span {
+    display: block;
+}
+
+/* CONTEÚDO */
+.evento-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.evento-info h3 {
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+/* TAG */
+.evento-tag {
+    display: inline-block;
+    background: #ff7a18;
+    color: #fff;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+/* INFO EXTRA */
+.evento-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 15px;
+}
+
+.eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+    gap: 25px;
+    justify-content: center;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo">Icoaraci</a>
+        <nav>
+            <ul>
+                <li><a href="#sobre">História</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#lugares">Lugares</a></li>
+                <li><a href="#utilidade">Utilidade Pública</a></li>
+                <li><a href="#horarios">Transportes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="sobre">
+        <h2>A História</h2>
+        <p class="sobre-texto">
+            De Fazenda Pinheiro à Vila Sorriso. Icoaraci é o coração do artesanato paraense e o refúgio perfeito para quem busca o melhor pôr do sol da Amazônia.
+        </p>
+        <a href="historia-detalhada.html" class="btn">Ler história completa</a>
+    </section>
+
+    <section id="lugares">
+        <h2>Explorar Lugares</h2>
+        <div class="lugares-grid">
+            <div class="lugar-card">
+                <img src="orla-cafe.jpg" alt="Restaurantes">
+                <div class="lugar-info">
+                    <h3>Gastronomia</h3>
+                    <p>O melhor da gastronomia paraense: do peixe com açaí à tapioquinha da orla.</p>
+                    <a href="restaurantes.html" class="btn">Ver Opções</a>
+                </div>
+            </div>
+            <div class="lugar-card">
+                <img src="Central-Park.jpg" alt="Praças">
+                <div class="lugar-info">
+                    <h3>Praças e Lazer</h3>
+                    <p>Espaços ao ar livre para relaxar, caminhar e curtir com a família.</p>
+                    <a href="lazer.html" class="btn">Explorar</a>
+                </div>
+            </div>
+            <div class="lugar-card">
+                <img src="escola.webp" alt="Escolas">
+                <div class="lugar-info">
+                    <h3>Educação</h3>
+                    <p>Instituições de ensino privadas em Icoaraci para todas as fases da aprendizagem.</p>
+                    <a href="escolas.html" class="btn">Ver Opções</a>
+                </div>
+            </div>
+            <div class="lugar-card">
+                <img src="skyfit.jpeg" alt="Artesanato">
+                <div class="lugar-info">
+                    <h3>Bem-estar</h3>
+                    <p>Mantenha-se ativo: guia de academias, centros esportivos e crossfit.</p>
+                    <a href="bem-estar.html" class="btn">Ver Opções</a>
+                </div>
+            </div>
+            <div class="lugar-card">
+                <img src="pauloazevedo.jpg" alt="Artesanato">
+                <div class="lugar-info">
+                    <h3>Saúde</h3>
+                    <p>Clínicas, laboratórios e profissionais de saúde para cuidar do seu bem-estar.</p>
+                    <a href="saude.html" class="btn">Ver Opções</a>
+                </div>
+            </div>
+            <div class="lugar-card">
+                <img src="lider.webp" alt="Artesanato">
+                <div class="lugar-info">
+                    <h3>Supermercados</h3>
+                    <p>Supermercados para o seu dia a dia com praticidade e variedade.</p>
+                    <a href="supermercados.html" class="btn">Ver Opções</a>
+                </div>
+            </div>
+            <div class="lugar-card">
+                <img src="lojasoxigenio.png" alt="Artesanato">
+                <div class="lugar-info">
+                    <h3>Outros serviços</h3>
+                    <p>Serviços essenciais como lojas, barbearias, lavanderias e muito mais perto de você.</p>
+                    <a href="outros.html" class="btn">Ver Opções</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria">
+    <h2>Galeria</h2>
+
+    <div class="galeria-grid galeria-preview">
+        <div class="foto-item">
+            <img src="fim-do-dia.jpeg" alt="Orla de Icoaraci">
+            <div class="foto-credito">@lucasgusmao_official</div>
+        </div>
+
+        <div class="foto-item">
+            <img src="vista.jpeg" alt="Icoaraci">
+            <div class="foto-credito">@lucasgusmao_official</div>
+        </div>
+
+        <div class="foto-item">
+            <img src="barco-antigo-abandonado.jpeg" alt="Artesanato">
+            <div class="foto-credito">@lucasgusmao_official</div>
+        </div>
+
+        <div class="foto-item">
+            <img src="igreja-praca-matriz.jpeg" alt="Igreja Matriz">
+            <div class="foto-credito">@lucasgusmao_official</div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="galeria.html" class="btn">Ver todas as fotos</a>
+    </div>
+
+    <section id="corrida">
+    <h2>Corrida em Icoaraci</h2>
+    <p class="sobre-texto">
+        Icoaraci também é movimento! Conheça os grupos de corrida da região, participe dos treinos e fique por dentro dos eventos.
+    </p>
+
+    <div class="lugares-grid">
+
+        <!-- Corre Icoaraci -->
+        <div class="lugar-card">
+            <img src="pessoasdocorreicoaraci.jpg" alt="Corre Icoaraci">
+            <div class="lugar-info">
+                <h3>Corre Icoaraci</h3>
+                <p>Corre Icoaraci é um grupo tradicional da região que reúne corredores iniciantes e experientes, com treinos às terças às 06:30 e 19:30, e às quintas às 19:30, na Concha Acústica da Orla.</p>
+
+                <div class="btn-group">
+                    <a href="https://gusmaolucasmateusdev.github.io/corre-icoaraci/" target="_blank" class="btn">Saiba mais</a>
+                    <a href="https://www.instagram.com/correicoaraci/" target="_blank" class="btn-outline">Instagram</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indomáveis Runners -->
+        <div class="lugar-card">
+            <img src="galeradosindomaveis.jpg" alt="Indomáveis Runners">
+            <div class="lugar-info">
+                <h3>Indomáveis Runners</h3>
+                <p>Indomáveis Runners é um grupo movido por energia, disciplina e superação, focado na evolução constante, com treinos às terças e quintas às 19:30 no QG dos Indomáveis.</p>
+                
+
+                <div class="btn-group">
+                    <a href="#" class="btn">Saiba mais</a>
+                    <a href="https://www.instagram.com/indomaveisqgoficial/" target="_blank" class="btn-outline">Instagram</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- EVENTOS -->
+<div style="margin-top:50px;">
+    <h3 style="color: var(--primary); margin-bottom:20px;">EVENTOS E CORRIDAS</h3>
+
+    <!-- GRID CORRETO -->
+    <div class="eventos-grid">
+
+        <!-- EVENTO 1 -->
+        <div class="evento-card">
+
+            <div class="evento-img">
+                <img src="corrida-de-icoaraci.jpg" alt="Corrida de Icoaraci">
+
+                <div class="evento-data">
+                    <span style="font-size:16px;">28</span>
+                    <span>JUN</span>
+                </div>
+            </div>
+
+            <div class="evento-info">
+                <span class="evento-tag">CORRIDA DE RUA</span>
+
+                <h3>CORRIDA DE ICOARACI</h3>
+
+                <a href="https://esportecorrida.com.br/v3/evento.php?evt=2442" target="_blank" class="btn">
+                    Inscrever-se agora
+                </a>
+
+                <div class="evento-meta">
+                    <span>Belém, PA</span>
+                    <span>5K CORRIDA - 3K CAMINHADA</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- EVENTO 2 -->
+        <div class="evento-card">
+
+            <div class="evento-img">
+                <img src="corridaindomaveis.jpg" alt="Corrida de Icoaraci">
+
+                <div class="evento-data">
+                    <span style="font-size:16px;">7</span>
+                    <span>JUN</span>
+                </div>
+            </div>
+
+            <div class="evento-info">
+                <span class="evento-tag">CORRIDA DE RUA</span>
+
+                <h3>3° CORRIDA INDOMINÁVEIS RUNNERS</h3>
+
+                <a href="https://esportecorrida.com.br/v3/evento.php?evt=2442" target="_blank" class="btn">
+                    Inscrever-se agora
+                </a>
+
+                <div class="evento-meta">
+                    <span>Belém, PA</span>
+                    <span>7K CORRIDA - 3K CAMINHADA</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</section>
+
+</section>
+
+    <section id="utilidade">
+        <h2>Utilidade Pública</h2>
+        <div class="menu-grid">
+            <div class="menu-category">
+                <h3>Saúde e Emergência</h3>
+                <div class="menu-item">
+                    <div class="item-header"><span>Hospital Abelardo Santos</span></div>
+                    <span class="address-info">Avenida Augusto Montenegro Km 13, S/N Agulha - Campina de Icoaraci, Belém - PA.</span>
+                    <span class="address-info"><strong>(91) 31086060</strong></span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header"><span>UPA de Icoaraci</span></div>
+                    <span class="address-info">R. Paraíso - Parque Guajará, Belém - PA.</span>
+                    <span class="address-info"><strong>(91) 32478321</strong></span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header"><span>Postão da Saúde</span></div>
+                    <span class="address-info">R. Manoel Barata, 840 - Icoaraci, Belém - PA.</span>
+                    <span class="address-info"><strong>(91) 32271550</strong></span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header"><span>Pronto Socorro Dr. Roberto Macedo</span></div>
+                    <span class="address-info">Rod. Augusto Montenegro, 552 - Parque Guajará, Belém - PA.</span>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h3>Segurança e Cidadania</h3>
+                <div class="menu-item">
+                    <div class="item-header"><span>10º BPM (Polícia Militar)</span></div>
+                    <span class="address-info">Tv. do Cruzeiro, 68 - Cruzeiro, Belém - PA.</span>
+                    <span class="address-info"><strong>190 (Emergência) ou (91) 98443-0942</strong></span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header"><span>8ª Seccional de Icoaraci</span></div>
+                    <span class="address-info">R. Oito de Maio, 68 - Campina de Icoaraci, Belém - PA.</span>
+                    <span class="address-info"><strong>190 (Emergência) ou (91) 3283-7430</strong></span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header"><span>Corpo de Bombeiros (26º GBM)</span></div>
+                    <span class="address-info">67, R. Oito de Maio, 1 - Campina de Icoaraci, Belém - PA.</span>
+                    <span class="address-info"><strong>193 (Emergência) ou (91) 3227-8080</strong></span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header"><span>Agência Distrital (ADIC)</span></div>
+                    <span class="address-info">R. Manoel Barata, 476-576 - Ponta Grossa, Belém - PA.</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header"><span>Usina da Paz Icoaraci/Outeiro</span></div>
+                    <span class="address-info">Tv. do Cruzeiro - Cruzeiro, Belém - PA.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="horarios">
+        <h2>Transportes</h2>
+        <div class="menu-grid">
+            <div class="menu-category">
+                <h3>Ônibus (Principais Linhas)</h3>
+                <div class="menu-item">
+                    <div class="item-header"><span>Icoaraci - Ver-o-Peso</span><span class="item-price">R$ 4,60</span></div>
+                    <p class="item-description">Esta segue pela Rodovia Arthur Bernardes, passando pelo Tapanã e Pratinha até chegar ao centro comercial.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header"><span>Icoaraci - Almirante Barroso</span><span class="item-price">R$ 4,60</span></div>
+                    <p class="item-description">Conexão direta com o terminal BRT.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header"><span>Icoaraci - Centro (Presidente Vargas)</span><span class="item-price">R$ 4,60</span></div>
+                    <p class="item-description">Via Av. Centenário e Av. Pedro Álvares Cabral. Ótima opção para o Shopping Bosque Grão-Pará ou Doca.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="item-header"><span>Icoaraci - São Brás</span><span class="item-price">R$ 4,60</span></div>
+                    <p class="item-description">Atende a área do Terminal Rodoviário de Belém.</p>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h3>Balsas e Barcos (Travessia Marajó)</h3>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span>Henvil</span>
+                        <a href="https://henvil.com.br" target="_blank" class="link-site">Site Oficial</a>
+                    </div>
+                    <p class="item-description">Saída diária do Porto de Icoaraci às <strong>07:30</strong>. <br> <small style="color: #d9534f;">* O portão fecha impreterivelmente às 07:20.</small></p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span>Banav</span>
+                        <a href="https://www.xsl.com.br/app/banav/" target="_blank" class="link-site">Site Oficial</a>
+                    </div>
+                    <p class="item-description">Saída diária às <strong>18:30</strong>.</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span>Master</span>
+                        <a href="https://naveguemaster.com.br" target="_blank" class="link-site">Site Oficial</a>
+                    </div>
+                    <p class="item-description">Saída diária às <strong>04:00</strong> da madrugada.</p>
+                </div>
+
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 10px; font-style: italic;">
+                    * Consulte os sites oficiais para informações sobre passagens, datas e viagens extras.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Como chegar em Icoaraci?</h2>
+        <p>Distrito de Icoaraci - Belém, Pará</p>
+        <div class="mapa-box">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15954.672620760443!2d-48.4840897!3d-1.3033857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a486a2e2df5f6b%3A0x6d5e054593b7b7f7!2sIcoaraci%2C%20Bel%C3%A9m%20-%20PA!5e0!3m2!1spt-BR!2sbr!4v1710000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Icoaraci. Desenvolvido por Lucas Gusmão.</p>
+    </footer>
+
+</body>
+
+</html>

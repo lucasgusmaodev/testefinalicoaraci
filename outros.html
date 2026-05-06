@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Outros serviços</title>
+
+<style>
+
+/* VARIÁVEIS (IGUAL AO SITE PRINCIPAL) */
+:root {
+    --bg-main: #ffffff;
+    --bg-soft: #f7f7f7;
+    --card-bg: #ffffff;
+
+    --primary: #ff7a18;
+    --primary-hover: #e56710;
+
+    --text-main: #1a1a1a;
+    --text-soft: #555;
+    --text-muted: #888;
+
+    --border: #e5e5e5;
+}
+
+/* GERAL */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+
+body{
+    background:var(--bg-main);
+    color:var(--text-main);
+    line-height:1.6;
+}
+
+/* HEADER (PADRÃO) */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--border);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:900;
+    color:var(--primary);
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+nav a{
+    color:var(--text-soft);
+    text-decoration:none;
+    margin-left:20px;
+    font-size:13px;
+    text-transform:uppercase;
+    font-weight:600;
+}
+
+nav a:hover{
+    color:var(--primary);
+}
+
+/* TÍTULO (ESTILO SEÇÃO) */
+.titulo{
+    text-align:center;
+    padding:80px 8% 40px;
+}
+
+.titulo h1{
+    font-size:32px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    position:relative;
+}
+
+.titulo h1::after{
+    content:'';
+    width:50px;
+    height:3px;
+    background:var(--primary);
+    position:absolute;
+    bottom:-10px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.titulo p{
+    color:var(--text-soft);
+    margin-top:20px;
+}
+
+/* GRID */
+.grid{
+    padding:40px 8%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+/* CARD (IGUAL AO LUGARES) */
+.card{
+    background:var(--card-bg);
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    transition:0.3s;
+    display:flex;
+    flex-direction:column;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* FOTO */
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+/* CONTEÚDO */
+.card-content{
+    padding:20px;
+}
+
+.card-content h3{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.card-content p{
+    color:var(--text-soft);
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+/* BOTÕES (PADRÃO) */
+.buttons{
+    margin-top:12px;
+}
+
+.btn{
+    display:inline-block;
+    background:var(--primary);
+    color:#fff;
+    padding:8px 14px;
+    margin-right:8px;
+    margin-top:5px;
+    text-decoration:none;
+    border-radius:6px;
+    font-size:13px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:var(--primary-hover);
+}
+
+.btn-map{
+    background:#eee;
+    color:var(--text-main);
+}
+
+.btn-map:hover{
+    background:#ddd;
+}
+
+/* MINI CARDS (SERVIÇOS ESSENCIAIS) */
+
+.mini-grid{
+    padding:20px 8%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.mini-card{
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:15px;
+    background:#fafafa;
+    transition:0.2s;
+}
+
+.mini-card:hover{
+    background:#fff;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.mini-card h4{
+    font-size:15px;
+    margin-bottom:8px;
+    color:var(--primary);
+}
+
+.mini-card p{
+    font-size:13px;
+    color:var(--text-soft);
+    margin-bottom:5px;
+}
+
+.mini-buttons{
+    margin-top:10px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:50px;
+    background:#f2f2f2;
+    border-top:1px solid var(--border);
+    margin-top:50px;
+    color:var(--text-muted);
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+<div class="logo">Icoaraci</div>
+
+<nav>
+
+<a href="index.html">Início</a>
+
+</nav>
+
+</header>
+
+
+<section class="titulo">
+    <h1>Serviços essenciais</h1>
+    <p>Bancos, farmácias, lavanderias, oficinas mecânicas, clínicas veterinárias etc.</p>
+</section>
+
+<section class="mini-grid">
+
+<!-- BANCO -->
+<div class="mini-card">
+    <h4>Vermelho Home Center</h4>
+    <p>(91) 98339-6610</p>
+    <p>Seg–Sáb: 08:00 às 19:00<br>Dom: 08:00 às 12:00</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Big Loja</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sáb: 08:00 às 19:00<br>Dom: 08:00 às 13:00</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Lojas Oxigênio</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sáb: 08:30 às 19:00<br>Dom: 08:30 às 12:30</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Lojas Avenida</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sáb: 08:00 às 19:00<br>Dom: 08:30 às 13:30</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Casas Bahia</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sáb: 08:30 às 18:00</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Magazine Luiza</h4>
+    <p>(91) 3184-3850</p>
+    <p>Seg–Sex: 08:30 às 18:00<br>Dom: 08:30 às 12:00</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Eletro Mateus</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 09h às 15h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Liliane</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 09h às 15h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Feama - Loja de Ferramentas</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 09h às 15h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Casa Pena - Loja de Ferramentas</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 09h às 15h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>diCASA</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 09h às 15h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Veterano Materiais de Construção</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 09h às 15h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Madetintas</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 09h às 15h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Madecom</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 09h às 15h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Construaires</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 09h às 15h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Banco do Brasil</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 09h às 15h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.bb.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<!-- BANCO -->
+<div class="mini-card">
+    <h4>Caixa Econômica</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Santander</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Bradesco</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Itaú</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Banpará</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<!-- FARMÁCIA -->
+<div class="mini-card">
+    <h4>Farmácia Pague Menos</h4>
+    <p>(91) 0000-0000</p>
+    <p>Todos os dias: 07h às 22h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.paguemenos.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Extrafarma</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Drogarias Globo</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<!-- FARMÁCIA -->
+<div class="mini-card">
+    <h4>Drogasil</h4>
+    <p>(91) 0000-0000</p>
+    <p>Todos os dias: 08h às 23h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.drogasil.com.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Maxi popular</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>LavBlue</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>MinhaLav</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>PMZ Pneus</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>TC Auto Serviço</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Xandy Moto Peças</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Camarão Moto Bike</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Clínica Veterinária VITTA</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Dra. Renata da Rocha</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Hospital Veterinário Vet Amour</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>UNIVET</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Vet House</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Animalia</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Casa da Ração</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Agrozazá</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+<div class="mini-card">
+    <h4>Feira da Ração</h4>
+    <p>(91) 0000-0000</p>
+    <p>Seg–Sex: 10h às 16h</p>
+
+    <div class="mini-buttons">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver no mapa</a>
+        <a href="https://www.caixa.gov.br" target="_blank" class="btn">Saiba mais</a>
+    </div>
+</div>
+
+
+</section>
+
+
+
+<footer>
+
+<p>© 2026 Icoaraci. Desenvolvido pela GemCode AI.</p>
+
+</footer>
+
+
+
+</body>
+</html>

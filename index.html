@@ -345,10 +345,6 @@
             section {
                 padding: 60px 5%;
             }
-
-            .foto-credito {
-                transform: translateY(0);
-            }
         }
         
     @media(max-width:768px) {
@@ -365,8 +361,9 @@
     }
 }
 
-/* Hover apenas para dispositivos com mouse */
-@media (hover: hover) {
+/* Hover somente em dispositivos com mouse */
+@media (hover: hover) and (pointer: fine) {
+
     .foto-item:hover img {
         transform: scale(1.08);
     }
@@ -374,6 +371,7 @@
     .foto-item:hover .foto-credito {
         transform: translateY(0);
     }
+
 }
 
 /* Toque no celular */

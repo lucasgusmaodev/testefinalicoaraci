@@ -350,25 +350,40 @@
                 transform: translateY(0);
             }
         }
-        /* MOBILE */
+        
     @media(max-width:768px) {
-        nav ul {
-            display: none;
-        }
-
-        section {
-            padding: 60px 5%;
-        }
-
-        .foto-credito {
-            transform: translateY(0);
-        }
-
-        /* 🔥 RESPONSIVO DA GALERIA */
-        .galeria-preview {
-            grid-template-columns: repeat(2, 1fr);
-        }
+    nav ul {
+        display: none;
     }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .galeria-preview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Hover apenas para dispositivos com mouse */
+@media (hover: hover) {
+    .foto-item:hover img {
+        transform: scale(1.08);
+    }
+
+    .foto-item:hover .foto-credito {
+        transform: translateY(0);
+    }
+}
+
+/* Toque no celular */
+.foto-item:active img {
+    transform: scale(1.08);
+}
+
+.foto-item:active .foto-credito {
+    transform: translateY(0);
+}
     /* BOTÕES SOCIAIS - CORRIDA */
 .btn-group {
     margin-top: 15px;

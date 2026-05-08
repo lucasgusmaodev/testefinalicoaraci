@@ -356,8 +356,8 @@
     }
 
     .galeria-preview {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
 }
 
 /* Hover somente em dispositivos com mouse */
@@ -606,6 +606,12 @@
         text-align: center;
     }
 
+}
+
+/* EVITA SCROLL HORIZONTAL */
+html,
+body {
+    overflow-x: hidden;
 }
 
     </style>

@@ -21,9 +21,8 @@
             --text-muted: #888;
 
             --border: #e5e5e5;
-        }
+        }  
 
-        /* GERAL */
         * {
             margin: 0;
             padding: 0;
@@ -488,6 +487,125 @@
     justify-content: center;
 }
 
+/* CTA NEGÓCIOS */
+.cta-negocios {
+    padding: 100px 8%;
+    background: linear-gradient(180deg, #fff, #fff7f0);
+}
+
+.cta-box {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 25px;
+    padding: 60px 50px;
+    border: 1px solid var(--border);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+
+.cta-tag {
+    display: inline-block;
+    background: rgba(255,122,24,0.12);
+    color: var(--primary);
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.cta-box h2 {
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.cta-texto {
+    color: var(--text-soft);
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* BENEFÍCIOS */
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.beneficio-item {
+    background: #fafafa;
+    padding: 16px 18px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    font-size: 15px;
+    text-align: left;
+}
+
+/* IMPORTÂNCIA */
+.importancia-box {
+    background: #fff7f0;
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 45px;
+}
+
+.importancia-box h3 {
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.importancia-grid {
+    display: grid;
+    gap: 15px;
+    color: var(--text-soft);
+    text-align: left;
+}
+
+/* BOTÕES */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn,
+.cta-buttons .btn-outline {
+    padding: 14px 24px;
+    font-size: 15px;
+}
+
+/* MOBILE */
+@media(max-width:768px) {
+
+    .cta-box {
+        padding: 40px 25px;
+    }
+
+    .cta-texto {
+        font-size: 15px;
+    }
+
+    .beneficios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
     </style>
 </head>
 
@@ -836,6 +954,74 @@
             </iframe>
         </div>
     </section>
+
+    <section class="cta-negocios">
+
+    <div class="cta-box">
+
+        <span class="cta-tag">
+            DESCUBRA O POTENCIAL DO SEU NEGÓCIO ONLINE
+        </span>
+
+        <h2>
+            Seu estabelecimento merece mais do que apenas um perfil no Instagram.
+        </h2>
+
+        <p class="cta-texto">
+            Hoje, a maioria das pessoas pesquisa no Google e nas redes sociais antes de visitar um local.
+            Ter uma presença digital profissional transmite confiança, fortalece sua marca e ajuda novos clientes a encontrarem seu negócio todos os dias.
+        </p>
+
+        <p class="cta-texto">
+            Restaurantes, cafeterias, academias, clínicas, hotéis, lojas e serviços locais podem ganhar mais visibilidade dentro da plataforma Icoaraci e ainda ter um site profissional totalmente personalizado.
+        </p>
+
+        <div class="beneficios-grid">
+
+            <div class="beneficio-item">✅ Galeria profissional de fotos</div>
+            <div class="beneficio-item">✅ Tour virtual 360° do ambiente</div>
+            <div class="beneficio-item">✅ Cardápio digital interativo</div>
+            <div class="beneficio-item">✅ Sistema de reservas</div>
+            <div class="beneficio-item">✅ Pedidos online</div>
+            <div class="beneficio-item">✅ Google Maps integrado</div>
+            <div class="beneficio-item">✅ Botão direto para WhatsApp</div>
+            <div class="beneficio-item">✅ Integração com Instagram</div>
+            <div class="beneficio-item">✅ Promoções e novidades</div>
+            <div class="beneficio-item">✅ Design moderno e responsivo</div>
+            <div class="beneficio-item">✅ Site adaptado para celular</div>
+            <div class="beneficio-item">✅ Melhor presença no Google</div>
+
+        </div>
+
+        <div class="importancia-box">
+
+            <h3>Por que isso é importante?</h3>
+
+            <div class="importancia-grid">
+                <div>📍 Seu cliente encontra você mais rápido</div>
+                <div>📍 Seu negócio transmite mais profissionalismo</div>
+                <div>📍 Você se destaca da concorrência</div>
+                <div>📍 Facilita reservas, pedidos e contato</div>
+                <div>📍 Mais chances de atrair novos clientes</div>
+            </div>
+
+        </div>
+
+        <div class="cta-buttons">
+
+            <a href="https://wa.me/5591999999999" target="_blank" class="btn">
+                Quero divulgar meu negócio
+            </a>
+
+            <a href="https://wa.me/5591999999999" target="_blank" class="btn-outline">
+                Quero um site profissional
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
     <footer>
         <p>© 2026 Icoaraci. Desenvolvido por Lucas Gusmão.</p>
